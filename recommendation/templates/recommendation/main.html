@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>회식 메뉴 추천</h1>
+    
+    <form action="{% url 'choice' %}">
+        <select name="menu">
+            {% for c in options %}
+                <option value="{{ c.content }}">{{ c.content }}</option>
+            {% endfor %}
+        </select>        
+        <input type="submit" value="Submit"/>
+    </form>
+    
+    <ul>
+        {% for c in options %}
+            <li> {{ c.content }}: {{ c.votes }} </li>
+        {% endfor %}        
+    </ul>
+
+</body>
+</html>
